@@ -1,10 +1,6 @@
-import { createClient } from "@supabase/supabase-js";
-import { Database } from "../supabase";
 import "./App.css";
-
-const supabaseUrl: string = import.meta.env.VITE_APP_URL;
-const supabaseKey: string = import.meta.env.VITE_APP_ANON_KEY;
-const supabase = createClient<Database>(supabaseUrl, supabaseKey);
+import MainPage from './MainPage'
+import {supabase} from './supabaseClient'; 
 
 interface User {
   id: number;
@@ -54,7 +50,7 @@ async function deleteUser(id: number) {
   }
 }
 
-function App() {
+const App = () => {
   return (
     <>
       <div></div>
@@ -70,14 +66,12 @@ function App() {
         <button onClick={() => updateUser(7, { user_name: "test7 policy" })}>
           update user button
         </button>
-        <button onClick={() => deleteUser(6)}>delete user button</button>
+        <button onClick={() => deleteUser(7)}>delete user button</button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+<MainPage />
     </>
   );
 }

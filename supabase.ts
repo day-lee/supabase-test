@@ -305,7 +305,16 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_user_recipe_cards: {
+        Args: {
+          input_user_id: number
+        }
+        Returns: {
+          recipe_name: string
+          duration: number
+          img_link: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
